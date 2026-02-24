@@ -13,12 +13,13 @@ def main():
         "Content-Type": "application/json",
         "X-Signature-256": "sfdsdf"
     }
+    message = json.dumps(JSON_PAYLOAD)
 
     #submission_request = requests.post(url=POST_URL, headers=headers, data=JSON_PAYLOAD)
 
     signature = hmac.new(
         HASH_SECRET_KEY.encode("utf-8"),
-        msg=json.dumps(JSON_PAYLOAD),
+        msg=message.encode("utf-8"),
         digestmod=hashlib.sha256
     ).hexdigest()
 
