@@ -17,7 +17,7 @@ def main():
     #submission_request = requests.post(url=POST_URL, headers=headers, data=JSON_PAYLOAD)
 
     signature = hmac.new(
-        str(HASH_SECRET_KEY),
+        HASH_SECRET_KEY.encode("utf-8"),
         msg=json.dumps(JSON_PAYLOAD),
         digestmod=hashlib.sha256
     ).hexdigest()
