@@ -5,6 +5,7 @@ on:
 
 env:
   hash_secret_key: ${{ secrets.HASH_SECRET_KEY }}
+  gh_action_link: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
 jobs:
   run-python:
